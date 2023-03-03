@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Persistance;
-
+using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,7 +36,8 @@ var services =  scope.ServiceProvider;
 try
 {
     var context = services.GetRequiredService<DataContext>();
-    context.Database.Migrate();
+    await context.Database.MigrateAsync();
+    await Seed.SeedData(context);
 }
 catch(Exception ex)
 {
