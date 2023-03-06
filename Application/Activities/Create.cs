@@ -13,10 +13,10 @@ namespace Application.Activities
 
         public class Handler : IRequestHandler<Command>
         {
-        public DataContext _context { get; }
+            private readonly DataContext _context;
             public Handler(DataContext context)
             {
-            _context = context;
+                _context = context;
                 
             }
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
