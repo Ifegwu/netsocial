@@ -3,6 +3,7 @@ using Persistance;
 using Persistence;
 using MediatR;
 using Application.Activities;
+using Application.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,7 @@ builder.Services.AddCors(x => {
 });
 
 builder.Services.AddMediatR(typeof(List.Handler).Assembly);
+builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 
 var app = builder.Build();
 
