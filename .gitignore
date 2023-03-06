@@ -6,6 +6,9 @@ project.lock.json
 nupkg/
 
 appsettings.json
+API/netsocial.db-shm
+API/netsocial.db-wal
+API/netsocial.db
 
 # Visual Studio Code
 .vscode
